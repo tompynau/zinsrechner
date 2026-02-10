@@ -151,11 +151,8 @@ start_datum = st.sidebar.date_input("Zinsbeginn", value=datetime.date(2023, 1, 1
 heute = datetime.date.today()
 
 with st.sidebar:
-    st.title("Titel der Sidebar")
-    st.header("Bereichs-Überschrift")
-    st.subheader("Kleine Überschrift")
-    st.write("Dies ist ein ganz normaler Textabschnitt.")
-    st.text("Dies ist Text mit fester Breite (Monospace).")
+    st.subheader("§ 367 BGB")
+    st.write("Hat der Schuldner außer der Hauptleistung Zinsen und Kosten zu entrichten, so wird eine zur Tilgung der ganzen Schuld nicht ausreichende Leistung zunächst auf die Kosten, dann auf die Zinsen und zuletzt auf die Hauptleistung angerechnet.Bestimmt der Schuldner eine andere Anrechnung, so kann der Gläubiger die Annahme der Leistung ablehnen.")
 
 tab1, tab2 = st.tabs(["📊 Berechnung", "📈 Analyse"])
 
