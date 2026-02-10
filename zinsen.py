@@ -130,7 +130,15 @@ st.markdown("""
 st.title("⚖️ Zinsrechner 51.5 UHV Nauen")
 
 # Sidebar
-st.sidebar.image("logo.png", width=120)
+with st.sidebar:
+    # Drei Spalten: [Platz links, Bild-Bereich, Platz rechts]
+    # Das Verhältnis 1:2:1 sorgt dafür, dass die Mitte am breitesten ist
+    col1, col2, col3 = st.columns([1, 2, 1])
+    
+    with col2:
+        st.image("logo.png", width=120) 
+    
+    st.divider() # Optionale Linie unter dem Logo
 min_datum = datetime.date(2003, 1, 1) # Erlaubt die Auswahl bis zum Jahr 1900
 max_datum = datetime.date(2100, 12, 31)
 st.sidebar.header("Eingaben")
