@@ -135,6 +135,7 @@ max_datum = datetime.date(2100, 12, 31)
 st.sidebar.header("Eingaben")
 betrag = st.sidebar.number_input("Betrag (€)", min_value=0.0, value=1000.0, step=100.0, format="%.2f")
 start_datum = st.sidebar.date_input("Zinsbeginn", value=datetime.date(2023, 1, 1), min_value=min_datum, max_value=max_datum, format="DD.MM.YYYY")
+heute = datetime.date.today()
 
 tab1, tab2 = st.tabs(["📊 Berechnung", "📈 Analyse"])
 
