@@ -23,7 +23,7 @@ def get_basiszinssaetze():
         (datetime.date(2006, 1, 1), 1.37),
         (datetime.date(2006, 7, 1), 1.95),
         (datetime.date(2007, 1, 1), 2.70),
-        (datetime.date(2007, 7, 1), 3.90),
+        (datetime.date(2007, 7, 1), 3.19),
         (datetime.date(2008, 1, 1), 3.32),
         (datetime.date(2008, 7, 1), 3.19),
         (datetime.date(2009, 1, 1), 1.62),
