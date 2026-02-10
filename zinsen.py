@@ -12,6 +12,7 @@ def ist_schaltjahr(jahr):
 def get_basiszinssaetze():
     # Historische Basiszinssätze der Deutschen Bundesbank
     return [
+        (datetime.date(2002, 1, 1), 2.57),
         (datetime.date(2002, 7, 1), 2.47),
         (datetime.date(2003, 1, 1), 1.97),
         (datetime.date(2003, 7, 1), 1.22),
@@ -57,8 +58,8 @@ def get_basiszinssaetze():
         (datetime.date(2023, 7, 1), 3.12),
         (datetime.date(2024, 1, 1), 3.62),
         (datetime.date(2024, 7, 1), 3.37),
-        (datetime.date(2025, 1, 1), 3.12),
-        (datetime.date(2025, 7, 1), 2.27),
+        (datetime.date(2025, 1, 1), 2.27),
+        (datetime.date(2025, 7, 1), 1.27),
         (datetime.date(2026, 1, 1), 1.27),
     ]
 
