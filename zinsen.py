@@ -64,13 +64,25 @@ def get_basiszinssaetze():
 
 # --- 2. PDF-Klasse ---
 class ZinsPDF(FPDF):
+
+class ZinsPDF(FPDF):
+    def __init__(self, az, schuldner):
+        super().__init__()
+        self.az = az
+        self.schuldner = schuldner
+
     def header(self):
-        # Wir nutzen Helvetica (Standard-Font), da Arial systemabhängig ist
-        self.set_font("Helvetica", "B", 16)
-        self.cell(0, 10, "Zinsberechnungsprotokoll", ln=True, align="C")
+        self.set_font("Helvetica", "B", 14)
+        self.cell(0, 10, "Zinsberechnungsprotokoll", ln=True, align="L")
+        
+        # Hier werden die Daten in das PDF geschrieben
         self.set_font("Helvetica", "", 10)
-        self.cell(0, 10, f"Erstellt am: {datetime.date.today().strftime('%d.%m.%Y')}", ln=True, align="R")
-        self.ln(5)
+        self.cell(0, 5, f"Aktenzeichen: {self.az}", ln=True)
+        self.cell(0, 5, f"Schuldner: {self.schuldner}", ln=True)
+        self.cell(0, 5, f"Datum: {datetime.date.today().strftime('%d.%m.%Y')}", ln=True)
+        self.ln(10) # Abstand nach dem Header
+    
+    
 
     def footer(self):
         self.set_y(-15)
