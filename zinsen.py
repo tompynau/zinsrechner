@@ -63,7 +63,6 @@ def get_basiszinssaetze():
     ]
 
 # --- 2. PDF-Klasse ---
-class ZinsPDF(FPDF):
 
 class ZinsPDF(FPDF):
     def __init__(self, az, schuldner):
