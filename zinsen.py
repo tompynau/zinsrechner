@@ -150,7 +150,12 @@ betrag = st.sidebar.number_input("Betrag (€)", min_value=0.0, value=1000.0, st
 start_datum = st.sidebar.date_input("Zinsbeginn", value=datetime.date(2023, 1, 1), min_value=min_datum, max_value=max_datum, format="DD.MM.YYYY")
 heute = datetime.date.today()
 
-st.write("§ 367 BGB beachten")
+with st.sidebar:
+    st.title("Titel der Sidebar")
+    st.header("Bereichs-Überschrift")
+    st.subheader("Kleine Überschrift")
+    st.write("Dies ist ein ganz normaler Textabschnitt.")
+    st.text("Dies ist Text mit fester Breite (Monospace).")
 
 tab1, tab2 = st.tabs(["📊 Berechnung", "📈 Analyse"])
 
