@@ -152,7 +152,7 @@ heute = datetime.date.today()
 
 with st.sidebar:
     st.subheader("§ 367 BGB")
-    st.write("Hat der Schuldner außer der Hauptleistung Zinsen und Kosten zu entrichten, so wird eine zur Tilgung der ganzen Schuld nicht ausreichende Leistung zunächst auf die Kosten, dann auf die Zinsen und zuletzt auf die Hauptleistung angerechnet.Bestimmt der Schuldner eine andere Anrechnung, so kann der Gläubiger die Annahme der Leistung ablehnen.")
+    st.write("Hat der Schuldner außer der Hauptleistung Zinsen und Kosten zu entrichten, so wird eine zur Tilgung der ganzen Schuld nicht ausreichende Leistung zunächst auf die Kosten, dann auf die Zinsen und zuletzt auf die Hauptleistung angerechnet. Bestimmt der Schuldner eine andere Anrechnung, so kann der Gläubiger die Annahme der Leistung ablehnen.")
 
 tab1, tab2 = st.tabs(["📊 Berechnung", "📈 Analyse"])
 
