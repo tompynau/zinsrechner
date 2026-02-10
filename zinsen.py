@@ -143,7 +143,7 @@ with st.sidebar:
 with st.sidebar:
     az_eingabe = st.text_input("Aktenzeichen", "AZ 2026/01")
     schuldner_eingabe = st.text_input("Schuldner", "Max Mustermann")
-min_datum = datetime.date(2003, 1, 1) # Erlaubt die Auswahl bis zum Jahr 1900
+min_datum = datetime.date(2002, 1, 1) # Erlaubt die Auswahl bis zum Jahr 1900
 max_datum = datetime.date(2100, 12, 31)
 st.sidebar.header("Eingaben")
 betrag = st.sidebar.number_input("Betrag (€)", min_value=0.0, value=1000.0, step=100.0, format="%.2f")
