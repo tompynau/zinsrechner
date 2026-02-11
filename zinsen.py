@@ -118,6 +118,7 @@ def create_pdf(df, betrag, zinsen, start_dat, az, schuldner, zahlung, rest):
         pdf.cell(0, 8, f"Offene Restforderung: {rest:,.2f} EUR".replace(".", ","), ln=True, align="R")
     else:
         pdf.set_font("Helvetica", "B", 11)
+        pdf.cell(0, 10, f"Zinsen gesamt: {gesamt_zinsen:,.2f} EUR".replace(",", "X").replace(".", ",").replace("X", "."), ln=True, align="R")
         pdf.cell(0, 8, f"Gesamtforderung: {(betrag + zinsen):,.2f} EUR".replace(".", ","), ln=True, align="R")
     
     return bytes(pdf.output())
