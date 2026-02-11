@@ -221,3 +221,29 @@ with tab2:
     fig = px.line(df_plot, x="Datum", y="Zinssatz", markers=True, line_shape="hv")
     fig.update_yaxes(ticksuffix="%")
     st.plotly_chart(fig, use_container_width=True)
+
+# --- NEU: ZAHLUNGSVERRECHNUNG ---
+st.subheader("💳 Zahlungsverrechnung (§ 367 BGB)")
+zahlung = st.number_input("Zahlungseingang (€)", min_value=0.0, value=0.0, step=50.0)
+
+# Tilgungslogik
+verbleibende_zahlung = zahlung
+getilgte_zinsen = min(verbleibende_zahlung, total_zinsen)
+verbleibende_zahlung -= getilgte_zinsen
+
+getilgte_hauptforderung = min(verbleibende_zahlung, betrag)
+rest_hauptforderung = betrag - getilgte_hauptforderung
+
+# Ergebnisanzeige der Tilgung
+res1, res2 = st.columns(2)
+with res1:
+    st.write("**Verrechnung:**")
+    st.write(f"- Tilgung Zinsen: {getilgte_zinsen:.2f} €")
+    st.write(f"- Tilgung Hauptforderung: {getilgte_hauptforderung:.2f} €")
+
+with res2:
+    st.write("**Offene Restforderung:**")
+    farbe = "green" if rest_hauptforderung == 0 else "red"
+    st.markdown(f"### <span style='color:{farbe}'>{rest_hauptforderung:.2f} €</span>", unsafe_allow_html=True)
+    if rest_hauptforderung == 0 and zahlung > (total_zinsen + betrag):
+        st.info(f"Überzahlung: {zahlung - (total_zinsen + betrag):.2f} €")
