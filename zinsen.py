@@ -11,25 +11,55 @@ def ist_schaltjahr(jahr):
 
 def get_basiszinssaetze():
     return [
-        (datetime.date(2002, 1, 1), 2.57), (datetime.date(2002, 7, 1), 2.47),
-        (datetime.date(2003, 1, 1), 1.97), (datetime.date(2003, 7, 1), 1.22),
-        (datetime.date(2004, 1, 1), 1.14), (datetime.date(2004, 7, 1), 1.13),
-        (datetime.date(2005, 1, 1), 1.21), (datetime.date(2005, 7, 1), 1.17),
-        (datetime.date(2006, 1, 1), 1.37), (datetime.date(2006, 7, 1), 1.95),
-        (datetime.date(2007, 1, 1), 2.70), (datetime.date(2007, 7, 1), 3.19),
-        (datetime.date(2008, 1, 1), 3.32), (datetime.date(2008, 7, 1), 3.19),
-        (datetime.date(2009, 1, 1), 1.62), (datetime.date(2009, 7, 1), 0.12),
-        (datetime.date(2010, 1, 1), 0.12), (datetime.date(2010, 7, 1), 0.12),
-        (datetime.date(2011, 1, 1), 0.12), (datetime.date(2011, 7, 1), 0.37),
-        (datetime.date(2012, 1, 1), 0.12), (datetime.date(2012, 7, 1), 0.12),
-        (datetime.date(2013, 1, 1), -0.13), (datetime.date(2013, 7, 1), -0.38),
-        (datetime.date(2014, 1, 1), -0.63), (datetime.date(2014, 7, 1), -0.73),
-        (datetime.date(2015, 1, 1), -0.83), (datetime.date(2015, 7, 1), -0.83),
-        (datetime.date(2016, 1, 1), -0.83), (datetime.date(2016, 7, 1), -0.88),
-        (datetime.date(2021, 1, 1), -0.88), (datetime.date(2023, 1, 1), 1.62),
-        (datetime.date(2023, 7, 1), 3.12), (datetime.date(2024, 1, 1), 3.62),
-        (datetime.date(2024, 7, 1), 3.37), (datetime.date(2025, 1, 1), 2.27),
-        (datetime.date(2025, 7, 1), 1.27), (datetime.date(2026, 1, 1), 1.27),
+        (datetime.date(2002, 1, 1), 2.57),
+        (datetime.date(2002, 7, 1), 2.47),
+        (datetime.date(2003, 1, 1), 1.97),
+        (datetime.date(2003, 7, 1), 1.22),
+        (datetime.date(2004, 1, 1), 1.14),
+        (datetime.date(2004, 7, 1), 1.13),
+        (datetime.date(2005, 1, 1), 1.21),
+        (datetime.date(2005, 7, 1), 1.17),
+        (datetime.date(2006, 1, 1), 1.37),
+        (datetime.date(2006, 7, 1), 1.95),
+        (datetime.date(2007, 1, 1), 2.70),
+        (datetime.date(2007, 7, 1), 3.19),
+        (datetime.date(2008, 1, 1), 3.32),
+        (datetime.date(2008, 7, 1), 3.19),
+        (datetime.date(2009, 1, 1), 1.62),
+        (datetime.date(2009, 7, 1), 0.12),
+        (datetime.date(2010, 1, 1), 0.12),
+        (datetime.date(2010, 7, 1), 0.12),
+        (datetime.date(2011, 1, 1), 0.12),
+        (datetime.date(2011, 7, 1), 0.37),
+        (datetime.date(2012, 1, 1), 0.12),
+        (datetime.date(2012, 7, 1), 0.12),
+        (datetime.date(2013, 1, 1), -0.13),
+        (datetime.date(2013, 7, 1), -0.38),
+        (datetime.date(2014, 1, 1), -0.63),
+        (datetime.date(2014, 7, 1), -0.73),
+        (datetime.date(2015, 1, 1), -0.83),
+        (datetime.date(2015, 7, 1), -0.83),
+        (datetime.date(2016, 1, 1), -0.83),
+        (datetime.date(2016, 7, 1), -0.88),
+        (datetime.date(2017, 1, 1), -0.88),
+        (datetime.date(2017, 7, 1), -0.88),
+        (datetime.date(2018, 1, 1), -0.88),
+        (datetime.date(2018, 7, 1), -0.88),
+        (datetime.date(2019, 1, 1), -0.88),
+        (datetime.date(2019, 7, 1), -0.88),
+        (datetime.date(2020, 1, 1), -0.88),
+        (datetime.date(2020, 7, 1), -0.88),
+        (datetime.date(2021, 1, 1), -0.88),
+        (datetime.date(2021, 7, 1), -0.88),
+        (datetime.date(2022, 1, 1), -0.88),
+        (datetime.date(2022, 7, 1), -0.88),
+        (datetime.date(2023, 1, 1), 1.62),
+        (datetime.date(2023, 7, 1), 3.12),
+        (datetime.date(2024, 1, 1), 3.62),
+        (datetime.date(2024, 7, 1), 3.37),
+        (datetime.date(2025, 1, 1), 2.27),
+        (datetime.date(2025, 7, 1), 1.27),
+        (datetime.date(2026, 1, 1), 1.27),
     ]
 
 # --- 2. PDF-Klasse ---
@@ -96,10 +126,10 @@ def create_pdf(df, betrag, zinsen, start_dat, az, schuldner, zahlung, rest):
 st.set_page_config(page_title="Zinsrechner UHV Nauen", layout="wide")
 
 # Kopf-Bereich mit zentriertem Logo
-col_logo_1, col_logo_2, col_logo_3 = st.columns([1, 1, 1])
-with col_logo_2:
-    try: st.image("logo.png", width=150)
-    except: pass
+# col_logo_1, col_logo_2, col_logo_3 = st.columns([1, 1, 1])
+# with col_logo_2:
+#    try: st.image("logo.png", width=150)
+#    except: pass
 
 st.title("⚖️ Zinsrechner 51.5 UHV Nauen")
 
