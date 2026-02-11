@@ -64,10 +64,14 @@ def get_basiszinssaetze():
 
 # --- 2. PDF-Klasse ---
 class ZinsPDF(FPDF):
-    def __init__(self, az, schuldner):
+    # def __init__(self, az, schuldner):
+     #   super().__init__()
+     #   self.az = az
+     #   self.schuldner = schuldner
+
+    def __init__(self, az):
         super().__init__()
         self.az = az
-        self.schuldner = schuldner
 
     def header(self):
         try:
@@ -76,7 +80,7 @@ class ZinsPDF(FPDF):
         self.set_font("Helvetica", "B", 16)
         self.cell(0, 10, "Zinsberechnungsprotokoll", ln=True, align="C")
         self.set_font("Helvetica", "", 10)
-        self.cell(0, 5, f"AZ: {self.az} | Schuldner: {self.schuldner}", ln=True, align="C")
+        self.cell(0, 5, f"AZ: {self.az}", ln=True, align="C")
         self.cell(0, 5, f"Erstellt am: {datetime.date.today().strftime('%d.%m.%Y')}", ln=True, align="R")
         self.ln(10)
 
@@ -85,8 +89,8 @@ class ZinsPDF(FPDF):
         self.set_font("Helvetica", "", 8)
         self.cell(0, 10, f"Seite {self.page_no()}/{{nb}}", align="C")
 
-def create_pdf(df, betrag, zinsen, start_dat, az, schuldner, zahlung, rest):
-    pdf = ZinsPDF(az, schuldner)
+def create_pdf(df, betrag, zinsen, start_dat, az, zahlung, rest):
+    pdf = ZinsPDF(az)
     pdf.alias_nb_pages()
     pdf.add_page()
     pdf.set_font("Helvetica", "B", 12)
@@ -142,7 +146,7 @@ with st.sidebar:
         except: pass
     st.divider()
     az_eingabe = st.text_input("Aktenzeichen", "AZ 2026/01")
-    schuldner_eingabe = st.text_input("Schuldner", "Max Mustermann")
+    # schuldner_eingabe = st.text_input("Schuldner", "Max Mustermann")
     st.header("Eingaben")
     betrag = st.number_input("Betrag (€)", min_value=0.0, value=1000.0, step=100.0, format="%.2f")
     start_datum = st.date_input("Zinsbeginn", value=datetime.date(2023, 1, 1), min_value=datetime.date(2002, 1, 1), format="DD.MM.YYYY")
@@ -208,7 +212,7 @@ cd_csv, cd_pdf = st.columns(2)
 csv_data = df_tabelle.to_csv(index=False, sep=';', decimal=',', encoding='utf-8-sig')
 cd_csv.download_button("📥 CSV Export", csv_data, "zinsen.csv")
 
-pdf_bytes = create_pdf(df_tabelle, betrag, total_zinsen, start_datum, az_eingabe, schuldner_eingabe, zahlung, offener_gesamtbetrag)
+pdf_bytes = create_pdf(df_tabelle, betrag, total_zinsen, start_datum, az_eingabe, zahlung, offener_gesamtbetrag)
 cd_pdf.download_button("📄 PDF Export", pdf_bytes, "zinsberechnung.pdf")
 
 with tab2:
