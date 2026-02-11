@@ -89,7 +89,7 @@ class ZinsPDF(FPDF):
         self.cell(0, 10, f"Seite {self.page_no()}/{{nb}}", align="C")
 
 def create_pdf(df, betrag, gesamt_zinsen, start_dat, az, schuldner):
-    pdf = ZinsPDF()
+    pdf = ZinsPDF(az, schuldner)
     pdf.alias_nb_pages()
     pdf.add_page()
 
