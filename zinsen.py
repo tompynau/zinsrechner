@@ -80,7 +80,7 @@ class ZinsPDF(FPDF):
         self.set_font("Helvetica", "B", 16)
         self.cell(0, 10, "Zinsberechnungsprotokoll", ln=True, align="C")
         self.set_font("Helvetica", "", 10)
-        self.cell(0, 5, f"AZ: {self.az} | Schuldner: {self.schuldner}", ln=True)
+        # self.cell(0, 5, f"AZ: {self.az} | Schuldner: {self.schuldner}", ln=True)
         self.cell(0, 10, f"Erstellt am: {datetime.date.today().strftime('%d.%m.%Y')}", ln=True, align="R")
         self.ln(5)
 
