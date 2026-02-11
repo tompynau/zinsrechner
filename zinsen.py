@@ -223,6 +223,9 @@ with tab2:
     st.plotly_chart(fig, use_container_width=True)
 
 # --- NEU: ZAHLUNGSVERRECHNUNG ---
+
+st.divider()  # Hier wird die Linie gezeichnet
+
 st.subheader("💳 Zahlungsverrechnung (§ 367 BGB)")
 zahlung = st.number_input("Zahlungseingang (€)", min_value=0.0, value=0.0, step=50.0)
 
