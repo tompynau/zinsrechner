@@ -88,7 +88,7 @@ class ZinsPDF(FPDF):
         self.set_font("Helvetica", "I", 8)
         self.cell(0, 10, f"Seite {self.page_no()}/{{nb}}", align="C")
 
-def create_pdf(df, betrag, gesamt_zinsen, start_dat):
+def create_pdf(df, betrag, gesamt_zinsen, start_dat, az, schuldner):
     pdf = ZinsPDF()
     pdf.alias_nb_pages()
     pdf.add_page()
