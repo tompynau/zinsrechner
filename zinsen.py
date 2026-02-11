@@ -221,7 +221,7 @@ with tab1:
     cd_csv.download_button("📥 CSV Export", csv_data, "zinsen.csv", "text/csv")
 
     # PDF Export
-    pdf_bytes = create_pdf(df_tabelle, betrag, total_zinsen, start_datum)
+    pdf_bytes = create_pdf(df_tabelle, betrag, total_zinsen, start_datum, az, schuldner)
     cd_pdf.download_button("📄 PDF Export", pdf_bytes, "zinsberechnung.pdf", "application/pdf")
 
 with tab2:
