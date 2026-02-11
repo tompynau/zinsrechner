@@ -117,7 +117,7 @@ def create_pdf(df, betrag, gesamt_zinsen, start_dat):
     return bytes(pdf.output())
 
 # --- 3. Streamlit Interface ---
-st.set_page_config(page_title="Zinsrechner Pro", layout="wide")
+st.set_page_config(page_title="Zinsrechner UHV Nauen", layout="wide")
 # st.set_page_config(page_title="Zinsrechner Pro", layout="centered")
 
 # CSS für Lesbarkeit (Dunkle Schrift auf hellem Grund)
