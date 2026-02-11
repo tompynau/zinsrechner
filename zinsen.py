@@ -68,7 +68,7 @@ class ZinsPDF(FPDF):
     def header(self):
 
         try:
-            self.image("logo.png", x=10, y=8, w=30)
+            self.image("logo.png", x=10, y=8, w=15)
         except: pass
         
         # Wir nutzen Helvetica (Standard-Font), da Arial systemabhängig ist
