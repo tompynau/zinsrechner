@@ -66,6 +66,11 @@ def get_basiszinssaetze():
 # --- 2. PDF-Klasse ---
 class ZinsPDF(FPDF):
     def header(self):
+
+        try:
+            self.image("logo.png", x=10, y=8, w=30)
+        except: pass
+        
         # Wir nutzen Helvetica (Standard-Font), da Arial systemabhängig ist
         self.set_font("Helvetica", "B", 16)
         self.cell(0, 10, "Zinsberechnungsprotokoll", ln=True, align="C")
@@ -203,7 +208,7 @@ with tab1:
     c2.metric("Zinsen gesamt", f"{total_zinsen:.2f} €")
     c3.metric("Gesamtforderung", f"{total_zinsen + betrag:.2f} €")
 
-    st.subheader("Downloads")
+    st.subheader("Export")
     cd_csv, cd_pdf = st.columns(2)
 
     # CSV Export
