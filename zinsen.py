@@ -188,7 +188,7 @@ with tab1:
 
 # ZAHLUNGSVERRECHNUNG
 st.divider()
-st.subheader("💳 Zahlungsverrechnung (§ 367 BGB)")
+st.subheader("🏦 Zahlungsverrechnung (§ 367 BGB)")
 zahlung = st.number_input("Zahlungseingang (€)", min_value=0.0, value=0.0, step=50.0)
 
 verbl_zahlung = zahlung
