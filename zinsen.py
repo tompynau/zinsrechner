@@ -82,7 +82,7 @@ class ZinsPDF(FPDF):
 
     def footer(self):
         self.set_y(-15)
-        self.set_font("Helvetica", "I", 8)
+        self.set_font("Helvetica", "", 8)
         self.cell(0, 10, f"Seite {self.page_no()}/{{nb}}", align="C")
 
 def create_pdf(df, betrag, zinsen, start_dat, az, schuldner, zahlung, rest):
